@@ -1,0 +1,28 @@
+# == Schema Information
+# Schema version: 20090707230509
+#
+# Table name: contacts
+#
+#  id         :integer         not null, primary key
+#  salutation :string(255)
+#  name       :string(255)
+#  email      :string(255)
+#  message    :text
+#  created_at :datetime
+#  updated_at :datetime
+#  kiez       :string(255)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  salutation: MyString
+  name: MyString
+  email: MyString
+  message: MyText
+
+two:
+  salutation: MyString
+  name: MyString
+  email: MyString
+  message: MyText

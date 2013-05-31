@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="span-17 colborder">
+        <h1><%= 'Neue' if action_name=='new' %> Anzeige</h1>
+        <%= render :partial => 'posts/post', :locals => {:post => @post} %>
+    </div>
+    <div class="span-6 last">
+        <p><%= link_to('Anzeigenliste', "/#{controller.get_kiez}/anzeigen", :class => "button big") %></p>
+        <%= render :partial => 'posts/filter' %>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+# initial version build with: rake asset:packager:create_yml
+# see: http://synthesis.sbecker.net/pages/asset_packager
+---
+javascripts: 
+- all:
+  - prototype
+  - effects
+  - controls
+  - dragdrop
+  - application
+

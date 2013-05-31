@@ -1,0 +1,160 @@
+<%#<div id="content_info" onclick="location.href='kontakt.html';">
+    +++ Sie vermieten Wohnungen oder Gewerbeeinheiten im Schillerkiez und möchten diese hier bewerben? Dann melden Sie sich bei uns! +++
+    +++ Sie suchen eine Wohnung im Schillerkiez und konnten hier kein passendes Objekt finden? Dann schreiben Sie uns ihre Wünsche und Vorstellungen, wir vermitteln Ihr Gesuch an unsere Kooperationspartner weiter. +++
+</div>%>
+<div id="content_headleft">KunstRaum</div>
+<div id="content_info_map">
+    Auf dieser Karte werden ortsansässigen Künstler und Veranstaltungshinweise dargestellt.<br/>
+    Sie sind Künstler im Schillerkiez und möchten hier über Ihre Veranstaltung oder Ihre Arbeit informieren,
+    dann schreiben Sie uns über unser <%= link_to('Kontaktformular.', :controller => :contacts, :action => :new) %>
+</div>
+<div id="content_main_map">
+<div id="map" class="content_left">Kartenausschnitt Schillerpromenade</div>
+<div class="content_right">
+<div class="boxheader">
+    <input id="eventswitch" type="checkbox" checked="checked" value="event" onclick="kk.cat_toggle('event');" />Veranstaltungen
+<!--    <input id="shopswitch" type="checkbox" checked="checked" value="shop" onclick="qb_toggle('shop');" />Läden-->
+    <input id="artistswitch" type="checkbox" checked="checked" value="artist" onclick="kk.cat_toggle('artist');"/>Künstler
+</div>
+<div id="boxheadline">Die Objekte</div>
+
+<div class="event" id="event">
+</div>
+
+<div class="artist" id="artist">
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="show('k1')">
+    <ul id="k1" class="o_entry">
+        <li class="o_title">Schillerpalais</li>
+        <li class="o_people">&nbsp;</li>
+        <li class="o_description">"Schillerpalais - Kunst- und Aktionsraum: Als Kulturbüro steht das Schillerpalais Initiativen und Einzelpersonen, die Kunst machen, fördern, unterstützen und organisieren wollen zur Mitarbeit und Nutzung seiner Infrastruktur offen."</li>
+        <li class="o_address">Schillerpromenade 4, 12049 Berlin</li>
+        <li class="o_www"><a href="http://www.schillerpalais.de/" target="_new">www.schillerpalais.de</a></li>
+        <li class="o_post">info[at]schillerpalais.de</li>
+        <li class="o_tel">(030) 62 72 46 70 - 46 73</li>
+    </ul>
+</div>
+
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="alert('show k2 on map');return true;">
+    <ul id="k2" class="o_entry">
+        <li class="o_title">Kunstvertetung</li>
+        <li class="o_people">Sabine Zeller & Martin Knerner</li>
+        <li class="o_description">
+            "Die Kunstvertetung:
+            <ul>
+                <li>engagiert sich für mehr Zusammenarbeit von KünstlerInnen, KunstvermittlerInnen, VertreterInnen von Schulen & sozialen / kulturellen Einrichtungen</li>
+                <li>entwickelt theorie- und praxisbezogene Projektarbeit mit Schwerpunkt auf der aktiven Beteiligung von Jugendlichen in sozialen Brennpunktgebieten</li>
+                <li>entwickelt neue Methoden und Möglichkeiten in der Vermittlungsarbeit</li>
+                <li>fördert den Austausch und die Qualitätssicherung in der Kulturarbeit</li>
+                <li>baut Netzwerke zu ansässigen KünstlerInnen / KunstvermittlerInnen auf</li>
+                <li>unterstützt junge KünstlerInnen und Sozialpädagogen bei der Planung und bei projektbezogenen künstlerischen Aktionen im Sozialen Raum"</li>
+            </ul>
+        </li>
+        <li class="o_address">Kienitzer Str. 122, 12049 Berlin</li>
+        <li class="o_www"><a href="http://www.kunstvertretung.de/" target="_new">www.kunstvertretung.de</a></li>
+        <li class="o_post">info[at]kunstvertretung.de</li>
+        <li class="o_tel">&nbsp;</li>
+    </ul>
+</div>
+
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="alert('show k3 on map');return true;">
+    <ul id="k3" class="o_entry">
+        <li class="o_title">Genezarethkirche</li>
+        <li class="o_people">Pfarrerin Frau Kruse</li>
+        <li class="o_description">Kultur-, Freizeit- und Bildungsangebote für Kinder, Jugendliche, Erwachsene und Senioren</li>
+        <li class="o_address">Herrfurthplatz 14, 12049 Berlin</li>
+        <li class="o_www"><a href="http://www.genezareth-gemeinde.de/" target="_new">www.genezareth-gemeinde.de</a></li>
+        <li class="o_post">kruse[at]genezareth-gemeinde.de</li>
+        <li class="o_tel">&nbsp;</li>
+    </ul>
+</div>
+
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="alert('show k4 on map');return true;">
+    <ul id="k4" class="o_entry">
+        <li class="o_title">Sowieso	</li>
+        <li class="o_people">Marc van da Kamp</li>
+        <li class="o_description">Veranstaltungsort</li>
+        <li class="o_address">Weisestr. 24, 12049 Berlin</li>
+        <li class="o_www">&nbsp;</li>
+        <li class="o_post">&nbsp;</li>
+        <li class="o_tel">030 / 62 72 57 83</li>
+    </ul>
+</div>
+
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="alert('show k5 on map');return true;">
+    <ul id="k5" class="o_entry">
+        <li class="o_title">TURBULENZEN</li>
+        <li class="o_people">Susanne Roth</li>
+        <li class="o_description">
+            <ol>
+                <li>Plastische Malerei, Skulpturen, Objekt- Raumgestaltung, Text, Auditives, Grafik</li>
+                <li>Kunst- und Kulturprojekte, Workshops, Aktionen mit Teilnehmern/Innen</li>
+                <li>Methodische, didaktische Ausstellungen: Konzepte, Aufbau, Partizipationsangebote</li>
+            </ol>
+        </li>
+        <li class="o_address">Herrfurthplatz 6, 12049 Berlin</li>
+        <li class="o_www"><a href="http://www.turbulenzen-berlin.de/" target="_new">www.turbulenzen-berlin.de</a></li>
+        <li class="o_post">roth.wie.blauh[at]gmx.net</li>
+        <li class="o_tel">030 / 627 21 88 9</li>
+    </ul>
+</div>
+
+<!--
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="alert('show k6 on map');return true;">
+    <ul id="k6" class="o_entry">
+        <li class="o_title">Natur | Fotografie | Kunst</li>
+        <li class="o_people">Julia Jarô Oberer	</li>
+        <li class="o_description">"In meinem Leben folgte dem Wissen um hässliche Mißstände die Suche nach dem Gegenpol: der lebensbejahenden Schönheit. Es macht für mich einen grossen Unterschied, ob ich mich häufig an kaputte Orte begebe, die mich als Realität wohl in ihren Bann ziehen, an denen mein gesammter Organismus sich aber verschliessen und abgrenzen will, oder ob ich mich damit beschäftige, die Schönheit um uns herum herauszuarbeiten. Durch dieses lebensfrohe Umfeld werden Sinne und Herz geweitet. Was ich jedem Menschen wünsche. Entsprechend möchte ich mit meiner aktuellen Arbeit vorrangig die Schönheit der Natur feiern und lade Sie ein, diese tagtäglich im Leben um uns herum auf's Neue zu entdecken."</li>
+        <li class="o_address">Selchower Str. 12, 12049 Berlin</li>
+        <li class="o_www"><a href="http://www.natur-talente.de/" target="_new">www.natur-talente.de</a></li>
+        <li class="o_post">&nbsp;</li>
+        <li class="o_tel">030 - 62 72 74 72</li>
+    </ul>
+</div>
+-->
+
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="alert('show k7 on map');return true;">
+    <ul id="k7" class="o_entry">
+        <li class="o_title">roth 01  Gebäudelichtdesign</li>
+        <li class="o_people">&nbsp;</li>
+        <li class="o_description">"Lichtdesigner, Bühnenausstater, technisch Betreuung von Künstlern, Veranstaltung Techniker, (Technisch Organisation Management). Lichtdesign geht von Klein- und Kleinstleuchten bis zu Lichtinstallationen von Brücken und Parkanlagen."</li>
+        <li class="o_address">Herrfurthstraße 10, 12049 Berlin</li>
+        <li class="o_www"><a href="http://www.roth-lichtdesign.com/" target="_new">www.roth-lichtdesign.com</a></li>
+        <li class="o_post">roth.lichtkunst[at]roth-lichtdesign.com</li>
+        <li class="o_tel">030 / 62721884</li>
+    </ul>
+</div>
+
+<div class="splitter">&nbsp;</div>
+
+<div class="o_entry" onclick="alert('show k8 on map');return true;">
+    <ul id="k8" class="o_entry">
+        <li class="o_title">Gunhild Kreuzer</li>
+        <li class="o_people">&nbsp;</li>
+        <li class="o_description">Performance- und Aktionskünstlerin</li>
+        <li class="o_address">&nbsp;</li>
+        <li class="o_www">&nbsp;</li>
+        <li class="o_post">g.kreuzer[at]web.de</li>
+        <li class="o_tel">&nbsp;</li>
+    </ul>
+</div>
+
+<div class="splitter">&nbsp;</div>
+
+</div>
+
+</div>
+</div>

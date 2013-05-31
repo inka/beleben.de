@@ -1,0 +1,45 @@
+# == Schema Information
+# Schema version: 20090709192250
+#
+# Table name: places
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  description :text
+#  address     :string(255)
+#  size        :decimal(, )
+#  price       :decimal(, )
+#  price2      :decimal(, )
+#  totalprice  :decimal(, )
+#  url         :string(255)
+#  email       :string(255)
+#  phone       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  address: MyString
+  size: 9.99
+  price: 9.99
+  price2: 9.99
+  totalprice: 9.99
+  url: MyString
+  email: MyString
+  phone: MyString
+
+two:
+  title: MyString
+  description: MyText
+  address: MyString
+  size: 9.99
+  price: 9.99
+  price2: 9.99
+  totalprice: 9.99
+  url: MyString
+  email: MyString
+  phone: MyString

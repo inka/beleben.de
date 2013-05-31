@@ -1,0 +1,39 @@
+# == Schema Information
+# Schema version: 20090709192250
+#
+# Table name: pictures
+#
+#  id           :integer         not null, primary key
+#  place_id     :integer
+#  parent_id    :integer
+#  size         :integer
+#  width        :integer
+#  height       :integer
+#  content_type :string(255)
+#  filename     :string(255)
+#  thumbnail    :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  content_type: MyString
+  filename: MyString
+  thumbnail: MyString
+  place_id: 
+  parent_id: 
+  size: 
+  width: 
+  height: 
+
+two:
+  content_type: MyString
+  filename: MyString
+  thumbnail: MyString
+  place_id: 
+  parent_id: 
+  size: 
+  width: 
+  height: 

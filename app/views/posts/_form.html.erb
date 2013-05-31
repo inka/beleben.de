@@ -1,0 +1,48 @@
+<div class="box wall">
+    <%- form_for(@post) do |f| %>
+        <%= f.hidden_field(:kiez, :value => controller.get_kiez) %>
+
+        <%= f.text_field :title, :size => 30, :maxlength => 50, :class => 'text title' %>
+        <span><%= f.error_message_on :title %></span><br/>
+        <!--<input type="text" name="" value="Überschrift" class="text title"/><br/>-->
+
+        <%= select 'post', 'kind', Post::KINDS, :include_blank => false %>
+        <%= select 'post', 'category', Post::CATEGORIES, :include_blank => false %>
+        &nbsp;&nbsp;&nbsp;gültig für <%= select 'post', 'expire_days', Post::EXPIRES.sort {|a,b| a[1] <=> b[1]}, :include_blank => false %>
+
+        <%= f.text_area :description, :cols => 50, :rows => 7, :class => 'text' %>
+        <span><%= f.error_message_on :description %></span>
+
+        <fieldset>
+            <legend>Kontaktdaten</legend>
+            <label><%= f.text_field :contact_person, :size => 15, :maxlength => 30, :class => 'text' %>Ansprechpartner</label>
+            <span><%= f.error_message_on :contact_person %></span>
+            <label><%= f.text_field :email, :class => 'text' %>E-Mail-Adresse*</label>
+            <span><%= f.error_message_on :email %></span>
+        </fieldset>
+
+        <fieldset>
+            <%- if %w[new create].index(action_name) %>
+                <legend>Passwort für spätere Änderungen</legend>
+                <label><%= f.text_field :password, :class => 'text' %>Passwort</label>
+                <span><%= f.error_message_on :password %></span>
+                <label><%= f.text_field :password_confirmation, :class => 'text' %>Passwortwiederholung</label>
+                <span><%= f.error_message_on :password_confirmation %></span>
+            <%- else
+                @post.password = 'Passwort erforderlich!' %>
+                <legend>Passwort</legend>
+                <label><%= f.text_field :password, :class => 'text' %>Passwort</label>
+                <span><%= f.error_message_on :password %></span>
+            <%- end %>
+        </fieldset>
+
+        <p class="clearfix">
+            <button type="submit"><%= image_tag("tick.png", :width => 16, :height => 16) %>Speichern</button>
+            <%- if !%w[new create].index(action_name) -%>
+                <button type="submit" onclick="if (!confirm('Sind sie sicher?')) return false; return true;" name="delete">Löschen</button>
+            <%- end -%>
+            <%= link_to('Zurück', posts_path, :class => :button) %>
+        </p>
+    <%- end %>
+</div>
+* Bitte füllen Sie alle mit * markierten Felder aus.

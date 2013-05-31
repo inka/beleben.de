@@ -1,0 +1,56 @@
+<div class="span-24">
+  <div class="span-2">&nbsp;</div>
+  <div class="span-20">
+    <h2><%= h @place.title %></h2>
+
+    <p style="white-space:pre;">
+      <b>Description:</b>
+      <%= h @place.description %>
+    </p>
+
+    <p>
+      <b>Address:</b>
+      <%= h @place.address %>
+    </p>
+
+    <p>
+      <b>Size:</b>
+      <%= h @place.size %>
+    </p>
+
+    <p>
+      <b>Price:</b>
+      <%= h @place.price %>
+    </p>
+
+    <p>
+      <b>Price2:</b>
+      <%= h @place.price2 %>
+    </p>
+
+    <p>
+      <b>Totalprice:</b>
+      <%= h @place.totalprice %>
+    </p>
+
+    <p>
+      <b>Url:</b>
+      <%= h @place.url %>
+    </p>
+
+    <p>
+      <b>Email:</b>
+      <%= mail_to(@place.email, nil, :encode => "javascript") %>
+    </p>
+
+    <p>
+      <b>Phone:</b>
+      <%= h @place.phone %>
+    </p>
+
+
+    <%= link_to 'Ändern', "/#{controller.get_kiez}#{edit_place_path(@place)}" %> |
+    <%= link_to('Zurück zur Kartendarstellung', "/#{controller.get_kiez}#{places_path}") %>
+  </div>
+  <div class="span-2 last">&nbsp;</div>
+</div>

@@ -1,0 +1,43 @@
+<div style="padding:10px;">
+    <%- if current_user.is_admin? -%>
+
+        <%# link_to_print %>
+        <h1>Systemverwaltung</h1>
+
+        <h2>Benutzerverwaltung</h2>
+        <%= button_to 'Neuer Benutzer', :action => :new, :method => :get %>
+
+        <%- if @users.empty? -%>
+            <p>Keine Benutzer gefunden.</p>
+        <%- else -%>
+            <table class="simple">
+                <tr class="head">
+                    <td>ID</td>
+                    <td>Email</td>
+                    <td>Name</td>
+                    <td>Erstellt am</td>
+                    <td>Aktive Messe</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <%- @users.sort_by(&:login).each do |user| -%>
+                    <tr<%= ' class="alarm"' if user.is_admin? %>>
+                        <td><%= h user.id rescue '' %></td>
+                        <td><%= link_to "#{user.login}#{' (Administrator)' if user.is_admin?}", :action => :show, :id => user %></td>
+                        <td><%= h user.name rescue '' %></td>
+                        <td><%= user.created_at.to_s(:db).gsub(' ', '&nbsp;') %></td>
+                        <td><%= h user.active_expo.name rescue '' %></td>
+                        <td><%- if user != current_user -%>
+                                <%= button_to 'Löschen', { :action => :destroy, :id => user }, :method => :delete,
+                                    :confirm => "Sind Sie sicher, dass Sie den Benutzer \"#{user.login}\" löschen wollen?" %>
+                            <%- else -%>
+                                <%= image_tag "none.gif", :size => "1x22" %>
+                            <%- end -%>
+                        </td>
+                    </tr>
+                <%- end -%>
+            </table>
+        <%- end -%>
+
+        <br/><br/>
+    <%- end -%>
+</div>

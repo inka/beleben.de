@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="icon" href="/images/schillerpromenade.ico" type="image/x-icon">
+    <%# doesn't work = stylesheet_link_merged :all %>
+    <%= stylesheet_link_tag 'schillerpromenade' %>
+    <%= # combined asset file through :cache option
+        javascript_include_tag "prototype",
+                               "effects",
+                               "dragdrop",
+                               "controls",
+                               "dragdrop",
+                               "application",
+                               :cache => "all" %>
+    <%- if %w[karte kultur].index(action_name) %>
+        <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA_GbY_QkQO7FpSpCc35mmQxSdAa59Iy4tysMkBtxkgxFcQ-h6hhRVQuo5_9rNgK-wW7ymD_00daYOWg"
+                type="text/javascript"></script>
+        <%#<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAA_GbY_QkQO7FpSpCc35mmQxSdAa59Iy4tysMkBtxkgxFcQ-h6hhRVQuo5_9rNgK-wW7ymD_00daYOWg"></script>%>
+        <%= javascript_include_tag 'karte.js' %>
+    <%- end %>
+    <%- if %w[posts].index(controller.controller_name) && %w[new create].index(action_name) %>
+        <script type="text/javascript">Event.observe(window, 'load', function() {kk.autoPopulate()});</script>
+    <%- end %>
+    <title>Quartier Schillerpromenade ..::||::.. Leben sucht Bewohner<%= h " > #{@title}" if !@title.blank?%></title>
+</head>
+
+<body id="kk_body" <%= 'onload="kk.init()"' if %w[karte kultur].index(action_name) %>>
+<%- if current_user -%>
+    <div id="top">
+      <span id="topbarContent"><p class="append-1" style="display:inline;">Adminbereich:</p>
+        <%= link_to 'Schillerpromenade', '/schillerpromenade/', :class => controller.get_kiez=='schillerpromenade' ? :nav_active : :nav_inactive %>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <%= link_to 'Moabit West', '/moabitwest/', :class => controller.get_kiez=='moabitwest' ? :nav_active : :nav_inactive %>
+      </span>
+      <span id="topbarUser">
+        <!--<%= link_to 'Neues Objekt', "/#{controller.get_kiez}#{new_place_path}" %>-->
+        <!--&nbsp;&nbsp;|&nbsp;&nbsp;-->
+        <%= link_to('Logout', '/logout') %>
+          </span>
+    </div>
+<%- else -%>
+    <div class="spacer"><%= image_tag 'None.gif', :width => 1, :height => 10 %></div>
+<%- end -%>
+<div id="nav">
+    <%= link_to 'Willkommen', '/schillerpromenade/', :class => action_name=='willkommen' ? :nav_active : :nav_inactive %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Schillerpromenade', '/schillerpromenade/projekt', :class => action_name=='projekt' ? :nav_active : :nav_inactive %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'KunstRaum', '/schillerpromenade/karte', :class => action_name=='karte' ? :nav_active : :nav_inactive %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Schwarzes Brett', '/schillerpromenade/anzeigen', :class => controller.controller_name=='posts' ? :nav_active : :nav_inactive %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Kontakt', '/schillerpromenade/kontakt', :class => controller.controller_name=='contacts' ? :nav_active : :nav_inactive %>
+</div>
+<div class="splitter">&nbsp;</div>
+<%- unless flash.keys.empty? -%>
+    <div id="flash">
+        <%- for kind, msg in flash -%>
+            <%- next if kind.to_sym == :debug && ::RAILS_ENV != 'development' -%>
+            <div class="<%= h kind %>"><%= h msg %></div>
+        <%- end -%>
+    </div>
+<%- end -%>
+<div id="content">
+
+    <%= yield :layout %>
+
+</div>
+<br/>
+<div class="splitter">&nbsp;</div>
+<div id="footer">
+    <%= link_to '&copy; 2008 StadtMuster Gbr', 'http://www.stadtmuster.de/', {:alt => 'StadtMuster Gbr'} %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Quartiersmanagement Schillerpromenade', 'http://www.schillerpromenade-quartier.de/' %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Impressum', 'http://www.stadtmuster.de/Impressum.html', {:alt => 'Impressum', :target => '_new'} %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to('Feedback', new_contact_path) %>
+    <%- if !current_user %>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <%= link_to('Login', login_path) %>
+    <%- end %>
+</div>
+<div class="spacer">&nbsp;</div>
+<%- if ::RAILS_ENV == 'development' -%>
+    <%= render :partial => 'layouts/debug' %>
+<%- end -%>
+<%- if ::RAILS_ENV == 'production' -%>
+    <%= render :partial => 'layouts/analytics' %>
+<%- end -%>
+</body>
+</html>

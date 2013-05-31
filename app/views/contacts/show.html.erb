@@ -1,0 +1,18 @@
+<div class="container">
+  <fieldset class="prepend-top">
+    <p>
+      <label>Von:</label>
+      <%= h @contact.salutation %> <%= h @contact.name %>
+    </p>
+    <p>
+      <label>Email:</label>
+      <%= mail_to(@contact.email, nil, :encode => "javascript") %>
+    </p>
+
+    <p>
+      <label>Ihre Nachricht:</label>
+      <%= text_area_tag(:message, @contact.message, {:rows => 8, :cols => 40, :readonly => 1}) %>
+    </p>
+  </fieldset>
+  <%= link_to 'Alle Nachrichten auflisten', contacts_path if !current_user.nil? %>
+</div>

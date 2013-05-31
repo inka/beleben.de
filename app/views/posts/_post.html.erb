@@ -1,0 +1,9 @@
+<div class="box wall">
+    <h3><%= h post.title %>
+        <%- if (!post.crypted_password.blank? || !current_user.nil?) %>
+            <%= link_to('Ändern', edit_post_path(post), :class => :edit) %>&nbsp;<%= link_to('Löschen', edit_post_path(post), :class => :edit) %>
+        <%- end %>
+    </h3>
+    <p><%= h post.description %></p>
+    <address><%= h post.contact_person %>,&nbsp;<%= mail_to(post.email, nil, :encode => "javascript", :class => "mail") %></address>
+</div>

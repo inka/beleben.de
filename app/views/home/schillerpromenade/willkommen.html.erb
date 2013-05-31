@@ -1,0 +1,56 @@
+<%#<div id="content_info" onclick="location.href='kontakt.html';">
+    +++ Sie vermieten Wohnungen oder Gewerbeeinheiten im Schillerkiez und möchten diese hier bewerben? Dann melden Sie sich bei uns! +++
+    +++ Sie suchen eine Wohnung im Schillerkiez und konnten hier kein passendes Objekt finden? Dann schreiben Sie uns ihre Wünsche und Vorstellungen, wir vermitteln Ihr Gesuch an unsere Kooperationspartner weiter. +++
+</div>%>
+<div id="content_head">LEBEN SUCHT BEWOHNER.</div>
+<div id="content_main">
+    <%= image_tag '1.jpg', :width => 280, :height => 210 %>
+    <%= image_tag '2.jpg', :width => 165, :height => 210 %>
+    <%= image_tag '3.jpg', :width => 280, :height => 210 %>
+    <div class="spacer">&nbsp;</div>
+    <h1>SCHILLERPROMENADE ERLEBEN</h1>
+    <p class="text">
+        Dieses Internetportal der Agentur StadtMuster informiert über Wissenswertes aus der Kreativenszene und dem
+        lokalen Mietmarkt im Schillerkiez. Nach dem Motto: Leben ist, wenn was passiert!“ ist dieses Portal ein Kontakthof
+        zwischen den verschiedenen Schillerkiez-Freunden.
+    </p>
+    <p class="text">
+        Sie tragen sich mit dem Gedanken in das Schillerkiez zu ziehen oder suchen Gewerberäume?<br/>
+        Sie finden auf unseren Seiten das <%= link_to 'schwarze Brett', '/schillerpromenade/anzeigen' %>,
+        auf dem Sie Ihre Wohnungs - und Gewerbegesuche oder jeweilige Angebote kostenlos inserieren können. So können Ihre Anzeigen für Vermieter und
+        künftige Mitbewohner sichtbar gemacht werden.<br/> 
+        Sie sind Künstler im Quartier und möchten Ihre Arbeit oder Ihre Veranstaltungen bewerben?<br/> Unter dem Punkt
+        <%= link_to 'KunstRaum', '/schillerpromenade/karte' %> können Termine und Veranstaltungshinweise der im Kiez schaffenden Kreativen öffentlich und so einem breiteren Publikum
+        zugänglich gemacht werden.
+    </p>
+    <p class="text">
+        Die Agentur Stadtmuster hat sich zum Ziel gesetzt, die Lebensqualität der Städte oder einzelner
+        Stadtteile behutsam zu erhöhen. Der urbane Charakter mit seinen vorhandenen Vernetzungen soll dabei in jedem
+        Fall erhalten bleiben. Auch soll das Gebiet für die Bewohner, die Wirtschaft und den Tourismus attraktiver werden.
+    </p>
+    <div class="spacer">&nbsp;</div>
+    <div id="logo_bar">
+        <a href="http://www.sozialestadt.de" target="_blank">
+            <%= image_tag 'Soziale_Stadt_Farbe.gif', :alt => "Logo Soziale Stadt", :id => "logo_sozstadt" %>
+        </a>
+        <a href="http://www.europa.eu.int" target="_blank" title="Europäische Union">
+            <%= image_tag "Logo_EU.gif", :alt=>"Logo Europäische Union", :id=>"logo_europa"%>
+        </a>
+        <a href="http://www.bundesregierung.de" target="_blank" title="Bundesregierung">
+            <%= image_tag "Logo_Die_Bundesregierung.gif", :alt=>"Logo Bundesregierung", :id=>"logo_bund"%>
+        </a>
+        <a href="http://www.berlin.de/strukturfonds/index.html" target="_blank" title="Europäischer Fonds für regionale Entwicklung">
+            <%= image_tag "efre_ohne_Motto.jpg", :alt=>"Logo Europäischer Fonds für regionale Entwicklung", :id=>"logo_efre"%>
+        </a>
+        <a href="http://www.berlin.de" target="_blank" title="Stadt Berlin">
+            <%= image_tag "berlin.gif", :alt=>"Logo Stadt Berlin", :id=>"logo_berlin"%>
+        </a>
+        <a href="http://www.berlin.de/ba-neukoelln/" target="_blank" title="Bezirk Neukölln">
+            <%= image_tag "klein_wappen_neukoelln.gif", :alt=>"Logo Bezirk Neukölln", :id=>"logo_neukoelln"%>
+        </a>
+        <a href="http://www.schillerpromenade-quartier.de/" target="_blank" title="Quartier Schillerpromenade">
+            <%= image_tag "Logo_Schillerpromenade.jpg", :alt=>"Logo Quartier Schillerpromenade", :id=>"logo_schillerpromenade"%>
+        </a><br/>
+        Das Projekt wird gefördert durch die Europäische Union, die Bundesrepublik Deutschland und das Land Berlin im Rahmen des Programms "Soziale Stadt".
+    </div>    
+</div>

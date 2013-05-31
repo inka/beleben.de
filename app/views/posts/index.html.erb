@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="span-17 colborder">
+            <%= render :partial => 'posts/head' %>
+
+        <div class="pagination append-bottom">
+            <%= will_paginate(@posts, :container => false, :previous_label => '&laquo; Vorherige Seite', :next_label => 'Nächste Seite &raquo;') %>
+        </div>
+        <% for post in @posts %>
+            <%= render :partial => 'posts/post', :locals => {:post => post} %>
+            <!--<div class="splitter" style="margin:0;">&nbsp;</div>-->
+        <% end %>
+        <%= will_paginate(@posts, :previous_label => '&laquo; Vorherige Seite', :next_label => 'Nächste Seite &raquo;') %>
+
+    </div>
+    <div class="span-6 last">    
+        <p><%= link_to(image_tag("add.png", :width => 16, :height => 16) + 'Neue Anzeige', "/#{controller.get_kiez}/anzeige", :class => "button big") %></p>
+        <%= render :partial => 'posts/filter' %>
+    </div>
+</div>

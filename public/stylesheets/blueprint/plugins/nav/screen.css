@@ -1,0 +1,35 @@
+/* -------------------------------------------------------------- 
+  
+	nav.css
+	* Gives you a standard horizontal navigation list 
+	Created by Johannes Ippen (http://www.johannesippen.com)
+
+	*Usage:
+	
+	<ul class="nav">
+		<li><a href="…">…</a></li>
+		…
+	</ul>
+	
+	*Options:
+		class="nav"
+		makes an unnested list of links a horizontal navigation
+		
+		class="nav right"
+		makes a right-aligned horizontal navigation
+		
+		class="nav divider"
+		class="nav right divider"
+		adds "|"-Dividers between the navigation items
+
+-------------------------------------------------------------- */
+ul.nav{list-style:none;margin:0;padding:0;width:auto;float:left;}
+ul.nav li{margin:0;padding:0;display:block;float:left;}
+ul.nav li a{line-height:3em;padding:.89em 1.5em;text-decoration:none;}
+ul.nav li.active a{background-color:#e5ecf9;}
+ul.nav li a:hover{background-color:#dfe6f2;}
+ul.nav li a:active{color:#fff;background-color:#009;}
+ul.nav.right{float:right;}
+ul.divider.nav li:before{content:"|";}
+ul.divider.nav.right li:before{content:"";}
+ul.divider.nav.right li:after{content:"|";}
