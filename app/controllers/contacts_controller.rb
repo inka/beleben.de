@@ -90,7 +90,7 @@ class ContactsController < ApplicationController
   end
 end
 
-class Schillerpromenade::ContactsController < ContactsController
+class Schillerpromenade < ContactsController
 end
-class Moabitwest::ContactsController < ContactsController  
+class Moabitwest < ContactsController  
 end
